@@ -8,7 +8,8 @@ def sram_traffic(
         ifmap_h=7, ifmap_w=7,
         filt_h=3, filt_w=3,
         num_channels=3,
-        strides=1, num_filt=8,
+        strides=1, dilation_factor = 1,
+        num_filt=8,
         ofmap_base=2000000, filt_base=1000000, ifmap_base=0,
         sram_read_trace_file="sram_read.csv",
         sram_write_trace_file="sram_write.csv"

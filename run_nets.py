@@ -73,6 +73,7 @@ def run_net( ifmap_sram_size=1,
         num_filters = int(elems[6])
 
         strides = int(elems[7])
+        dilation_factor = int(elems[8])
         
         ifmap_base  = offset_list[0]
         filter_base = offset_list[1]
@@ -92,6 +93,7 @@ def run_net( ifmap_sram_size=1,
                                 num_channels = num_channels,
                                 num_filt = num_filters,
                                 strides = strides,
+                                dilation_factor = dilation_factor,
                                 data_flow = data_flow,
                                 word_size_bytes = 1,
                                 filter_sram_size = filter_sram_size,

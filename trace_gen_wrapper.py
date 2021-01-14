@@ -10,7 +10,8 @@ def gen_all_traces(
         ifmap_h = 7, ifmap_w = 7,
         filt_h  = 3, filt_w = 3,
         num_channels = 3,
-        strides = 1, num_filt = 8,
+        strides = 1, dilation_factor = 1,
+        num_filt = 8,
 
         data_flow = 'os',
 
@@ -65,7 +66,8 @@ def gen_all_traces(
                 ifmap_h = ifmap_h, ifmap_w = ifmap_w,
                 filt_h = filt_h, filt_w = filt_w,
                 num_channels = num_channels,
-                strides = strides, num_filt = num_filt,
+                strides = strides, dilation_factor = dilation_factor,
+                num_filt = num_filt,
                 ofmap_base = ofmap_base, filt_base = filt_base, ifmap_base = ifmap_base,
                 sram_read_trace_file = sram_read_trace_file,
                 sram_write_trace_file = sram_write_trace_file
