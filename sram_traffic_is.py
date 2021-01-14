@@ -16,8 +16,8 @@ def sram_traffic(
     ):
 
     # Dimensions of output feature map channel
-    E_h = math.floor((ifmap_h - filt_h + strides) / strides)
-    E_w = math.floor((ifmap_w - filt_w + strides) / strides)
+    E_h = math.floor((ifmap_h - (dilation_factor*(filt_h -1) + 1) + strides) / strides)
+    E_w = math.floor((ifmap_w - (dilation_factor*(filt_w -1) + 1) + strides) / strides)
     
     # Number of pixels in one convolution window
     px_per_conv_window = filt_h * filt_w * num_channels
