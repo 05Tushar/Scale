@@ -88,6 +88,7 @@ def sram_traffic(
                     gen_trace_ifmap_partial(
                         h_fold = h,
                         rc = rc, hc = hc,
+                        dilation_factor=dilation_factor,
                         col_addrs   = col_base_addr_list,
                         cycle       = cycles,
                         num_rows    = dimension_rows,
@@ -205,6 +206,7 @@ def sram_traffic(
 def gen_trace_ifmap_partial(
                     h_fold = 0,
                     rc = 3, hc = 3,
+                    dilation_factor = 1,
                     col_addrs=[],       #Ensure that this takes care of the v_folding
                     cycle=0,
                     num_rows=4, num_cols=4,
@@ -232,7 +234,7 @@ def gen_trace_ifmap_partial(
                 row_idx = math.floor((index + r)/ rc)
                 col_idx = (index + r) % rc
 
-                addr = row_idx * hc + col_idx
+                addr = (row_idx * hc + col_idx) * dilation_factor
                 addr += col_addrs[c] + ifmap_base
 
                 entry += str(int(addr)) + ", "
@@ -389,6 +391,7 @@ def gen_trace_ofmap(
 def gen_trace_ifmap(
                     cycle = 0,
                     r = 3, rc = 9, hc = 27,
+                    dilation_factor = 1,
                     parallel_window = 1,
                     ifmap_base_this_fold = [],
                     num_ifmap_this_fold = 1,
@@ -425,7 +428,7 @@ def gen_trace_ifmap(
             row_idx = math.floor(idx / rc)
             col_idx = (idx) % rc
 
-            local_addr = row_idx * hc + col_idx
+            local_addr = (row_idx * hc + col_idx)*dilation_factor
 
             active_cols = active_cols_list[p]
             for col in range(active_cols):

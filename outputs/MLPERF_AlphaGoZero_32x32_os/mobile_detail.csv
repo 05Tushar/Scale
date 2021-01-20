@@ -1,4 +1,2 @@
 Layer,	DRAM_IFMAP_start,	DRAM_IFMAP_stop,	DRAM_IFMAP_bytes,	DRAM_Filter_start,	DRAM_Filter_stop,	DRAM_Filter_bytes,	DRAM_OFMAP_start,	DRAM_OFMAP_stop,	DRAM_OFMAP_bytes,	SRAM_read_start,	SRAM_read_stop,	SRAM_read_bytes,	SRAM_write_start,	SRAM_write_stop,	SRAM_write_bytes,
-Conv1,	-14919.0,	-1.0,	149187,	-87.0,	-1.0,	864,	8250.0,	47678.0,	394272,	58.0,	12378.0,	394272,	0.0,	10533.0,	679297,	
-Conv2,	-40141.0,	-1.0,	401408,	-29.0,	-1.0,	288,	109156.0,	110365.0,	12100,	288.0,	109155.0,	12100,	0.0,	109154.0,	3703107,	
-Conv3,	-40141.0,	-1.0,	401408,	-205.0,	-1.0,	2048,	8255.0,	52497.0,	802816,	63.0,	25150.0,	802816,	0.0,	25118.0,	1630751,	
+Conv1,	-5018.0,	-1.0,	50176,	-52.0,	-1.0,	512,	49303.0,	54231.0,	49284,	19.0,	49302.0,	49284,	0.0,	49292.0,	492858,	

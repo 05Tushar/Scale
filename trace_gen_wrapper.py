@@ -80,6 +80,7 @@ def gen_all_traces(
         min_addr=ifmap_base, max_addr=filt_base,
         sram_trace_file=sram_read_trace_file,
         dram_trace_file=dram_ifmap_trace_file,
+        dram_row_size = 512
     )
 
     dram.dram_trace_read_v2(
@@ -88,6 +89,7 @@ def gen_all_traces(
         min_addr=filt_base, max_addr=ofmap_base,
         sram_trace_file= sram_read_trace_file,
         dram_trace_file= dram_filter_trace_file,
+        dram_row_size = 512
     )
 
     dram.dram_trace_write(

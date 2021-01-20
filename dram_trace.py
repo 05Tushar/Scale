@@ -13,14 +13,14 @@ def prune(input_list):
 
     return l
 
-
 def dram_trace_read_v2(
         sram_sz         = 512 * 1024,
         word_sz_bytes   = 1,
         min_addr = 0, max_addr=1000000,
         default_read_bw = 10,               # this is arbitrary
         sram_trace_file = "sram_log.csv",
-        dram_trace_file = "dram_log.csv"
+        dram_trace_file = "dram_log.csv",
+        dram_row_size = 512
     ):
 
     t_fill_start    = -1
@@ -72,7 +72,13 @@ def dram_trace_read_v2(
                     t_drain_start   = clk
 
                 # Add the new element to sram
-                sram.add(elems[e])
+                r_val = math.floor(elems[e]/dram_row_size)
+                for i in range(dram_row_size):
+                    k = r_val * dram_row_size + i
+                    if (k >= max_addr) or (len(sram) + word_sz_bytes > sram_sz):
+                        break
+                    sram.add(k)
+
 
 
     if len(sram) > 0:
@@ -99,7 +105,6 @@ def dram_trace_read_v2(
 
     sram_requests.close()
     dram.close()
-
 
 def dram_trace_write(ofmap_sram_size = 64,
                      data_width_bytes = 1,
